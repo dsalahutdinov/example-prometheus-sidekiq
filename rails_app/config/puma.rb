@@ -1,3 +1,7 @@
+require 'rails'
+require 'yabeda'
+require 'yabeda/prometheus'
+
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers: a minimum and maximum.
 # Any libraries that use thread pools should be configured to match
@@ -6,7 +10,7 @@
 #
 threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
 threads threads_count, threads_count
-workers 5
+workers 2
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
@@ -17,7 +21,10 @@ port        ENV.fetch("PORT") { 5000 }
 environment ENV.fetch("RAILS_ENV") { "development" }
 
 activate_control_app
+plugin :rails
 plugin :yabeda
+puts "Starting webrick"
+Yabeda::Prometheus::Exporter.start_metrics_server!
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together

@@ -6,12 +6,16 @@ RUN apt-get update && apt-get install -qq -y --no-install-recommends \
   build-essential \
   sqlite3
 
+ENV LANG=C.UTF-8 \
+  GEM_HOME=/bundle \
+  BUNDLE_JOBS=4 \
+  BUNDLE_RETRY=3
+ENV BUNDLE_PATH $GEM_HOME
+ENV BUNDLE_APP_CONFIG=$BUNDLE_PATH \
+  BUNDLE_BIN=$BUNDLE_PATH/bin
+ENV PATH $BUNDLE_BIN:$PATH
+
 RUN mkdir -p /app
 WORKDIR /app
-
-COPY Gemfile Gemfile.lock ./
-RUN gem install bundler && bundle install --jobs 4 --retry 5
-
-COPY . .
 
 EXPOSE 5000

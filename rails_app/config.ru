@@ -2,6 +2,6 @@
 
 require_relative 'config/environment'
 
-use Yabeda::Prometheus::Exporter
+#use Yabeda::Prometheus::Exporter
 
 run Rails.application

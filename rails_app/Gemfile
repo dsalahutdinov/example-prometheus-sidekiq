@@ -18,11 +18,13 @@ gem 'mini_racer', platforms: :ruby
 
 gem "sidekiq"
 
-gem "yabeda-rails"
-gem "yabeda-sidekiq", "~> 0.1.1"
-gem "yabeda-prometheus"
-gem "yabeda-puma-plugin"
+gem "yabeda", path: '/localgems/yabeda'
+gem "yabeda-rails", path: '/localgems/yabeda-rails'
+gem "yabeda-sidekiq", path: '/localgems/yabeda-sidekiq'
+gem "yabeda-prometheus", require: false, path: '/localgems/yabeda-prometheus'
+gem "yabeda-puma-plugin", require: false
 
+gem 'byebug'
 # Since v0.1.4 yabeda-prometheus can work either with official client
 # or with GitLab's fork which can handle multi-process application servers
 # We'll stick with official one.

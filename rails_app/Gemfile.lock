@@ -1,3 +1,30 @@
+PATH
+  remote: /localgems/yabeda-prometheus
+  specs:
+    yabeda-prometheus (0.1.4)
+      yabeda
+
+PATH
+  remote: /localgems/yabeda-rails
+  specs:
+    yabeda-rails (0.1.3)
+      rails
+      yabeda
+
+PATH
+  remote: /localgems/yabeda-sidekiq
+  specs:
+    yabeda-sidekiq (0.1.3)
+      sidekiq
+      yabeda
+
+PATH
+  remote: /localgems/yabeda
+  specs:
+    yabeda (0.1.3)
+      concurrent-ruby
+      dry-initializer
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -157,20 +184,9 @@ GEM
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
-    yabeda (0.1.2)
-      concurrent-ruby
-      dry-initializer
-    yabeda-prometheus (0.1.4)
-      yabeda
     yabeda-puma-plugin (0.1.0)
       json
       puma
-      yabeda
-    yabeda-rails (0.1.1)
-      rails
-      yabeda
-    yabeda-sidekiq (0.1.3)
-      sidekiq
       yabeda
 
 PLATFORMS
@@ -189,10 +205,11 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
-  yabeda-prometheus
+  yabeda!
+  yabeda-prometheus!
   yabeda-puma-plugin
-  yabeda-rails
-  yabeda-sidekiq (~> 0.1.1)
+  yabeda-rails!
+  yabeda-sidekiq!
 
 RUBY VERSION
    ruby 2.5.1p57
